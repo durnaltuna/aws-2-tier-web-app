@@ -105,8 +105,8 @@ chmod +x deploy_app.sh
 
 ## 📸 Screenshots
 
-* [ ] Insert screenshot of the website greeting page
-* [ ] Insert screenshot of the database check page
+<img src="screenshots/greeting_page.png" alt="Website Screenshot" width="400"/>
+<img src="screenshots/database_check.png" alt="Database Check Screenshot" width="400"/>
 
 ---
 
