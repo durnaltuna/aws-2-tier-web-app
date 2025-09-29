@@ -65,8 +65,8 @@ Before running the project, ensure you have:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YourUsername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/durnaltuna/aws-2-tier-web-app.git
+cd aws-2-tier-web-app
 ```
 
 ### 2. Provision the Infrastructure
