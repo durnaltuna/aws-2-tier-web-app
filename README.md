@@ -1,81 +1,121 @@
-Project Title
-Automated Two-Tier Web Application Deployment on AWS with Terraform
+# Automated Two-Tier Web Application Deployment on AWS with Terraform
 
-Project Description
-This project demonstrates a fundamental DevOps workflow for deploying a two-tier web application on Amazon Web Services (AWS). The entire infrastructure is defined as code using Terraform, which provisions a Virtual Private Cloud (VPC), public and private subnets, an EC2 web server, and a managed PostgreSQL database (RDS) in a secure, isolated environment.
+## 📌 Project Description
 
-The application itself is a simple Python Flask web server that serves a basic web page and includes an endpoint to test the database connection. The deployment process is fully automated via a shell script that copies the application code, installs dependencies, and manages the application's lifecycle on the EC2 instance, all from a local machine.
+This project demonstrates a fundamental **DevOps workflow** for deploying a **two-tier web application** on **Amazon Web Services (AWS)**.
 
-This project showcases the following skills:
+The infrastructure is defined as code using **Terraform**, which provisions:
 
-Infrastructure as Code (IaC): Using Terraform to manage and provision cloud resources.
+* A **Virtual Private Cloud (VPC)**
+* **Public and private subnets**
+* An **EC2 web server**
+* A managed **PostgreSQL RDS database**
 
-Cloud Computing: Working with core AWS services (EC2, RDS, VPC, Security Groups).
+The **application** is a simple **Python Flask web server** that serves a basic web page and includes an endpoint to test the database connection.
 
-DevOps Automation: Automating application deployment with a single script.
+Deployment is fully automated via a **shell script** that:
 
-Networking: Configuring subnets and security groups to enable secure communication between tiers.
+* Copies the application code
+* Installs dependencies
+* Manages the application lifecycle on the EC2 instance
 
-Architecture
-The project's architecture follows a standard two-tier model:
+---
 
-Web Tier: An EC2 instance running a Flask application is located in a public subnet. It is accessible from the internet through a public IP address.
+## 🛠 Skills Showcased
 
-Database Tier: An RDS PostgreSQL database is located in a private subnet, with no public IP. It is only accessible to the EC2 instance, providing enhanced security.
+* **Infrastructure as Code (IaC):** Terraform to manage/provision cloud resources
+* **Cloud Computing:** AWS services (EC2, RDS, VPC, Security Groups)
+* **DevOps Automation:** Automated deployment with a single script
+* **Networking:** Secure subnet and security group configuration
 
-Prerequisites
-To run this project, you will need:
+---
 
-AWS Account with valid credentials configured for your machine.
+## 🏗 Architecture
 
-Terraform installed locally.
+The project follows a **two-tier model**:
 
-Python 3 and pip installed.
+* **Web Tier:**
 
-Git installed to clone the repository.
+  * EC2 instance running Flask
+  * Located in a **public subnet**
+  * Accessible via a **public IP**
 
-Deployment
-Follow these steps to deploy the application.
+* **Database Tier:**
 
-1. Clone the Repository
-Clone this project to your local machine using Git:
+  * RDS PostgreSQL database
+  * Located in a **private subnet**
+  * No public IP (accessible only to EC2 instance)
 
-Bash
+---
 
+## ✅ Prerequisites
+
+Before running the project, ensure you have:
+
+* AWS Account with valid credentials configured
+* **Terraform** installed locally
+* **Python 3** and **pip** installed
+* **Git** installed
+* A private **SSH key file (.pem)** for EC2 access
+
+---
+
+## 🚀 Deployment
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/YourUsername/your-repo-name.git
 cd your-repo-name
-2. Provision the Infrastructure
-Initialize Terraform and apply the configuration to create the AWS resources.
+```
 
-Bash
+### 2. Provision the Infrastructure
 
+```bash
 terraform init
 terraform apply
-This will provision the VPC, subnets, EC2 instance, RDS database, and security groups. Type yes when prompted.
+```
 
-3. Deploy the Application
-Run the automated deployment script to copy the application code and launch the web server on the EC2 instance.
+Type **yes** when prompted.
+This creates the VPC, subnets, EC2 instance, RDS database, and security groups.
 
-Bash
+### 3. Deploy the Application
 
+```bash
 chmod +x deploy_app.sh
 ./deploy_app.sh
-Usage
-Once the deployment is complete, your application will be live.
+```
 
-View the Website: Navigate to the public IP address of your EC2 instance in a web browser. You can get the IP address from the Terraform output.
+⚠️ Make sure to replace placeholder names in the script with your correct **key file** and **project names**.
 
-Check Database Connection: Go to http://[EC2_PUBLIC_IP]:8080/database_check to confirm that the application can connect to the database.
+---
 
-Screenshots
-[Insert your screenshot here showing the website with the greeting]
+## 🌐 Usage
 
-[Insert your screenshot here showing the database check page]
+* **View Website:** Open your EC2 instance’s public IP in a browser
+* **Database Check:**
 
-Clean Up
-To avoid unexpected charges, remember to destroy all the provisioned resources when you are finished.
+  ```http
+  http://[EC2_PUBLIC_IP]:8080/database_check
+  ```
 
-Bash
+  Confirms the Flask app can connect to the database
 
+---
+
+## 📸 Screenshots
+
+* [ ] Insert screenshot of the website greeting page
+* [ ] Insert screenshot of the database check page
+
+---
+
+## 🧹 Clean Up
+
+Destroy provisioned resources to avoid extra charges:
+
+```bash
 terraform destroy
-Type yes when prompted.
+```
+
+Type **yes** when prompted.
